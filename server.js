@@ -9,8 +9,13 @@ const processMessage = require('./process-message');
 
 const app = express();
 
+var corsOptions = {
+    origin: 'https://brave-galileo-6773b0.netlify.com',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
 app.use(helmet());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
