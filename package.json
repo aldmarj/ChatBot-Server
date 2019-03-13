@@ -6,6 +6,7 @@
   "scripts": {
     "start": "pm2 start server.js",
     "restart": "pm2 restart all",
+    "stop": "pm2 stop server.js",
     "test": "your test script goes here"
   },
   "keywords": [],
