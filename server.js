@@ -15,7 +15,7 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors({origin: 'https://brave-galileo-6773b0.netlify.com'}));
+app.use(cors({origin: '*'}));
 
 app.post('/chat', (req, res) => {
     const { message } = req.body;
