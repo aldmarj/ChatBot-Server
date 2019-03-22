@@ -3,7 +3,7 @@ require('dotenv').config({ path: 'variables.env' });
 const express = require('express');
 const bodyParser = require('body-parser');
 var helmet = require('helmet');
-const cors = require('cors');
+var cors = require('cors');
 var compression = require('compression');
 const processMessage = require('./process-message');
 
@@ -15,11 +15,7 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+app.use(cors({origin: 'https://brave-galileo-6773b0.netlify.com'}));
 
 app.post('/chat', (req, res) => {
     const { message } = req.body;
